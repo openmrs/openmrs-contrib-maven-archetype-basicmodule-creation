@@ -7,7 +7,7 @@
 	<version>${version}</version>
 	<packaging>pom</packaging>
 	<name>${module-name}</name>
-	<description>Parent project for ${module-name}</description>
+	<description>${module-description}</description>
 	
 	<url>http://openmrs.org</url>
 

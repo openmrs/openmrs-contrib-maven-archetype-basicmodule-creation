@@ -4,22 +4,14 @@
 					  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
  	<requiredProperties>
 	
-	    <requiredProperty key="module-name-no-spaces" >
-			<defaultValue>BasicModule</defaultValue>
-		</requiredProperty>
-	     
-		<requiredProperty key="module-name">
-			<defaultValue>Basic Module</defaultValue>
-		</requiredProperty>
+	    <requiredProperty key="module-name-no-spaces"  />		 
 		
-		<requiredProperty key="module-description">
-			<defaultValue>Basic Module. Useful for creating other modules.</defaultValue>
-		</requiredProperty>
-		
-		<requiredProperty key="module-author">
-			<defaultValue>Ben Wolfe</defaultValue>
-		</requiredProperty>
-		
+		<requiredProperty key="module-name" />
+				
+		<requiredProperty key="module-description" />
+				
+		<requiredProperty key="module-author" />
+				
 		<requiredProperty key="adminLinkReply" />
 		
 		<requiredProperty key="springMvcReply" />
@@ -27,28 +19,15 @@
 		<requiredProperty key="serviceReply" />
 		
 		<requiredProperty key="service-name-no-spaces" />
+		
 		<requiredProperty key="dao-name-no-spaces" />
+		
 		<requiredProperty key="entity-name-no-spaces" />
-		    
-
-		
-		
+				
 	</requiredProperties>
 
-	<fileSets>
-		<fileSet encoding="UTF-8">
-			<directory>.settings</directory>
-			<includes>
-				<include>**/*.prefs</include>
-			</includes>
-		</fileSet>
-		
-	</fileSets>
-	
-	
-	
 	<modules>
-		<module id="${rootArtifactId}-api"  dir="api" name="${rootArtifactId}-api">
+		<module id="${rootArtifactId}"  dir="api" name="${rootArtifactId}">
 			<fileSets>
 				<fileSet filtered="true" packaged="true"  encoding="UTF-8">
 					<directory>src/main/java</directory>
@@ -56,17 +35,8 @@
 						<include>**/*.java</include>
 					</includes>
 				</fileSet>
-				
-				<fileSet filtered="true" packaged="true"  encoding="UTF-8">
-					<directory>src/test</directory>
-					<includes>
-						<include>**/*.java</include>
-					</includes>
-				</fileSet>
 			</fileSets>
 		</module>
-		
-		
 		
 		<module id="${rootArtifactId}" dir="omod"  name="${rootArtifactId}">
 			<fileSets>
@@ -85,19 +55,7 @@
 						<include>**/*.xml</include>
 						<include>**/*.properties</include>
 					</includes>
-				</fileSet>
-				<fileSet filtered="true" packaged="true"  encoding="UTF-8">
-					<directory>src/test/java</directory>
-					<includes>
-						<include>**/*.java</include>
-					</includes>
-				</fileSet>
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory>src/test/resources</directory>
-					<includes>
-						<include>**/*.xml</include>
-					</includes>
-				</fileSet>
+				</fileSet>				
 			</fileSets>
 		</module>
 	</modules>

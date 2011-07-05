@@ -2,25 +2,29 @@
 
 <module configVersion="1.2">
 	
-    <!-- Base Module Properties -->
-	<id>@MODULE_ID@</id>
-	<name>@MODULE_NAME@</name>
-	<version>@MODULE_VERSION@</version>
-	<package>@MODULE_PACKAGE@</package>
+    <!-- Module Properties -->
+	<id>${artifactId}</id>
+	<name>${module-name}</name>
+	<version>${version}</version>
+	<package>${package}</package>
 	<author>${module-author}</author>
 	<description>
 			${module-description}
 	</description>
-
-	<activator>${package}.${module-name-no-spaces}Activator</activator>
 	
-	<!-- <updateURL>https://dev.openmrs.org/modules/download/@MODULE_ID@/update.rdf</updateURL> -->
-	<!-- /Base Module Properties -->
+	<!-- / Module Properties -->
 	
 	<require_version>1.2.0.3400</require_version>
-	
-	
-	#if( $adminLinkReply == 'y' || $adminLinkReply== 'Y' || $springMvcReply == 'y' || $springMvcReply== 'Y'  )
+
+
+    <!-- Module Activator -->
+	<activator>${package}.${module-name-no-spaces}Activator</activator>
+
+
+	#* If the value of wizard question: " Do you want admin page link " 
+	is 'y' then below lines will get added to config file
+	*#
+	#if( $adminLinkReply == 'y' || $adminLinkReply== 'Y' || $springMvcReply == 'y' || $springMvcReply== 'Y' )
 	<!-- Add's link to admin page --> 
 	 <extension>
 	  <point>org.openmrs.admin.list</point>
@@ -28,66 +32,12 @@
 	 </extension>    
   	#end
   	
+  	
   	#if($serviceReply == 'y' || $serviceReply== 'Y')
   	<!-- hibernate mapping -->
 	<mapping resource="${package}/db/hibernate/${entity-name-no-spaces}.hbm.xml" />	
    	#end
 
-	<!-- AOP
-	<advice>
-		<point>org.openmrs.api.FormService</point>
-		<class>@MODULE_PACKAGE@.advice.DuplicateFormAdvisor</class>
-	</advice>
-	 /AOP -->
-	
-	
-	<!-- Required Privileges 
-	<privilege>
-		<name>Form Entry</name>
-		<description>Allows user to access Form Entry pages/functions</description>
-	</privilege>
-	 /Required Privileges -->
-
-
-	<!-- Required Global Properties 
-	<globalProperty>
-		<property>@MODULE_ID@.someProperty</property>
-		<defaultValue></defaultValue>
-		<description>
-			A description of the global property goes here.  The description
-			should explain enough for administrators to understand the purpose
-			and possible values for the global property.
-		</description>
-	</globalProperty>
-	/Required Global Properties -->
-	
-	<!--
-	<dwr>
-		<allow>
-			<create creator="new" javascript="DWRFormEntryService">
-				<param name="class" value="org.openmrs.module.@MODULE_ID@.web.DWRFormEntryService"/>
-				<include method="enterForm"/>
-			</create>
-		</allow>
-
-		<signatures>
-			<![CDATA[
-			import @MODULE_PACKAGE@.web.DWRFormEntryService;
-			DWRFormEntryService.enterForm(Integer patientId, Integer formId, boolean useEncounter, List<String> fields);
-			]]>
-		</signatures>	
-	</dwr>
-	-->
-	
-	<!-- Servlets -->
-	<!-- Accessed through the url /pageContext()/moduleServlet/<moduleId>/<servlet-name> 
-	<servlet>
-		<servlet-name>formDownload</servlet-name>
-		<servlet-class>@MODULE_PACKAGE@.web.FormDownloadServlet</servlet-class>
-	</servlet>
-	-->
-	<!-- /Servlets -->
-	
 	
 	<!-- Internationalization -->
 	<!-- All message codes should start with @MODULE_ID@.* -->

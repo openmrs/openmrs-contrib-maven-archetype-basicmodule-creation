@@ -4,14 +4,14 @@
 	
 	<parent>
 		<groupId>${groupId}</groupId>
-		<artifactId>${rootArtifactId}</artifactId>
+		<artifactId>${artifactId}</artifactId>
 		<version>${version}</version>
 	</parent>
 	<groupId>${groupId}</groupId>
-	<artifactId>${artifactId}</artifactId>
+	<artifactId>${artifactId}-api</artifactId>
 	<packaging>jar</packaging>
 	<name>${module-name} API</name>
-	<description>API project for ${module-name}</description>
+	<description>API project for ${module-name-no-spaces}</description>
 	
 	
 
@@ -29,26 +29,13 @@
 			<artifactId>openmrs-api</artifactId>
 			<type>jar</type>
 		</dependency>
-		<dependency>
-			<groupId>org.openmrs.api</groupId>
-			<artifactId>openmrs-api</artifactId>
-			<type>test-jar</type>
-		</dependency>
+		
 		<dependency>
 			<groupId>org.openmrs.web</groupId>
 			<artifactId>openmrs-web</artifactId>
 			<type>jar</type>
 		</dependency>
-		<dependency>
-			<groupId>org.openmrs.web</groupId>
-			<artifactId>openmrs-web</artifactId>
-			<type>test-jar</type>
-		</dependency>
-		<dependency>
-			<groupId>org.openmrs.test</groupId>
-			<artifactId>openmrs-test</artifactId>
-			<type>pom</type>
-		</dependency>
+		
 	</dependencies>
 
 </project>

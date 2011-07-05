@@ -22,6 +22,9 @@
   		    http://www.springframework.org/schema/util
   		    http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
+ #*If the value of wizard question: Do you want Spring driven Mvc page
+   is 'y' then below lines will get added to moduleApplicationContext 
+ *#
  #if ($springMvcReply == 'y' || $springMvcReply== 'Y')
  <!-- Mapping webpages -->
   <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
@@ -29,8 +32,13 @@
  
  #end 
  
+ 
+ 
+ #* If the value of wizard question: Do you want service/serviceimpl/dao/hibernatedao mapping
+   is 'y' then below lines will get added to moduleApplicationContext 
+ *#
  #if ($serviceReply == 'y' || $serviceReply == 'Y')
- <!-- Adds module service -->
+<!-- Mapping Service -->
   <bean parent="serviceContext">
 	<property name="moduleService">
 		<list>
