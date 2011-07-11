@@ -32,11 +32,10 @@
 	 </extension>    
   	#end
   	
-  	
-  	#if($serviceReply == 'y' || $serviceReply== 'Y')
-  	<!-- hibernate mapping -->
-	<mapping resource="${package}/db/hibernate/${entity-name-no-spaces}.hbm.xml" />	
-   	#end
+  	<!-- Maps hibernate file's , if present -->   	
+   	<mappingFiles>
+		${omodHbmConfig}
+	</mappingFiles>
 
 	
 	<!-- Internationalization -->
