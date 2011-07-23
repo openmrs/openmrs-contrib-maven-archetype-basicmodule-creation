@@ -11,7 +11,7 @@
 		<requiredProperty key="module-description" />
 				
 		<requiredProperty key="module-author" />
-				
+		
 		<requiredProperty key="adminLinkReply" />
 		
 		<requiredProperty key="springMvcReply" />
@@ -23,7 +23,12 @@
 		<requiredProperty key="dao-name-no-spaces" />
 		
 		<requiredProperty key="entity-name-no-spaces" />
-				
+		
+		<requiredProperty key="openmrs-version" />
+		
+		<requiredProperty key="dependentModules" />
+		
+					
 	</requiredProperties>
 
 	<modules>

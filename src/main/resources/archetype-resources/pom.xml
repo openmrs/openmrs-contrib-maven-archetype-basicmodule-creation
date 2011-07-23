@@ -23,12 +23,12 @@
 		<module>omod</module>
 	</modules>
 
+    
+	
 	<dependencyManagement>
 		<dependencies>
 			<!--
 			Libraries from lib to add as dependencies with compile or runtime scope:
-			
-				
 			Find matching dependencies in maven central repository.
 			<dependency>
 				<groupId>org.other.library</groupId>
@@ -37,6 +37,31 @@
 				<scope>compile</scope>
 			</dependency>
 			-->
+			
+			#if ($dependentModules != "empty")
+				
+			#foreach($moduleIdVersion in $dependentModules.split(","))
+			<dependency>
+			<groupId>org.openmrs.module</groupId>
+		    	#foreach($moduleIdVersion in $moduleIdVersion.split(":"))
+		       	#if ($velocityCount == 1)<artifactId>${moduleIdVersion}-api</artifactId>#end
+		       	#if ($velocityCount == 2)<version>${moduleIdVersion}</version>#end
+		       	#end
+	        </dependency>	
+	 		#end
+	 		
+	 		#foreach($moduleIdVersion in $dependentModules.split(","))
+			<dependency>
+			<groupId>org.openmrs.module</groupId>
+	 		#foreach($moduleIdVersion in $moduleIdVersion.split(":"))
+			#if ($velocityCount == 1)<artifactId>${moduleIdVersion}-omod</artifactId>#end
+			#if ($velocityCount == 2)<version>${moduleIdVersion}</version>#end
+			#end
+		    <type>omod</type>
+			</dependency>
+			#end		
+				
+			#end			
 			
 			<dependency>
 				<groupId>org.openmrs.api</groupId>
@@ -77,7 +102,7 @@
 	</dependencyManagement>
 
 	<properties>
-		<openMRSVersion>1.8.0-alpha</openMRSVersion>
+		<openMRSVersion>${openmrs-version}</openMRSVersion>
 	</properties>
 
 	<build>
