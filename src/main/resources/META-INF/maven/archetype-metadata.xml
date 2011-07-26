@@ -18,16 +18,13 @@
 		
 		<requiredProperty key="serviceReply" />
 		
-		<requiredProperty key="service-name-no-spaces" />
-		
-		<requiredProperty key="dao-name-no-spaces" />
-		
-		<requiredProperty key="entity-name-no-spaces" />
-		
 		<requiredProperty key="openmrs-version" />
 		
 		<requiredProperty key="dependentModules" />
 		
+		<requiredProperty key="object-name-no-spaces" />
+
+		<requiredProperty key="entity-name-no-spaces" />
 					
 	</requiredProperties>
 
