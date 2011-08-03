@@ -48,18 +48,7 @@
 		       	#if ($velocityCount == 2)<version>${moduleIdVersion}</version>#end
 		       	#end
 	        </dependency>	
-	 		#end
-	 		
-	 		#foreach($moduleIdVersion in $dependentModules.split(","))
-			<dependency>
-			<groupId>org.openmrs.module</groupId>
-	 		#foreach($moduleIdVersion in $moduleIdVersion.split(":"))
-			#if ($velocityCount == 1)<artifactId>${moduleIdVersion}-omod</artifactId>#end
-			#if ($velocityCount == 2)<version>${moduleIdVersion}</version>#end
-			#end
-		    <type>omod</type>
-			</dependency>
-			#end		
+	 		#end	
 				
 			#end			
 			

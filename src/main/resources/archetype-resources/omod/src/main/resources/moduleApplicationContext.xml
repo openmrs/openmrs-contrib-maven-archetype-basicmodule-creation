@@ -42,17 +42,17 @@
   <bean parent="serviceContext">
 	<property name="moduleService">
 		<list>
-			<value>${package}.${object-name-no-spaces}Service</value>
+			<value>${package}.${service-dao-name-no-spaces}Service</value>
 			<bean
 				class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 				<property name="transactionManager">
 					<ref bean="transactionManager" />
 				</property>
 				<property name="target">
-					<bean class="${package}.impl.${object-name-no-spaces}ServiceImpl" > 				
-					   <property name="${object-name-no-spaces}DAO">
+					<bean class="${package}.impl.${service-dao-name-no-spaces}ServiceImpl" > 				
+					   <property name="${service-dao-name-no-spaces}DAO">
 							<bean
-								class="${package}.db.hibernate.Hibernate${object-name-no-spaces}DAO">
+								class="${package}.db.hibernate.Hibernate${service-dao-name-no-spaces}DAO">
 								<property name="sessionFactory">
 									<ref bean="sessionFactory" />
 								</property>
