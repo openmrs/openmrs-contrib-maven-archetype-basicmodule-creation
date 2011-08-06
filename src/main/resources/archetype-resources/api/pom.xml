@@ -35,6 +35,14 @@
 			<artifactId>openmrs-web</artifactId>
 			<type>jar</type>
 		</dependency>
+		#if($dependencyManagement == "y")
+		<dependency>
+            <groupId>org.openmrs.test</groupId>
+            <artifactId>openmrs-test</artifactId>
+            <type>jar</type>
+        </dependency>
+        #end
+		
 		
 	</dependencies>
 

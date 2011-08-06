@@ -39,8 +39,7 @@
 			-->
 			
 			#if ($dependentModules != "empty")
-				
-			#foreach($moduleIdVersion in $dependentModules.split(","))
+		    #foreach($moduleIdVersion in $dependentModules.split(","))
 			<dependency>
 			<groupId>org.openmrs.module</groupId>
 		    	#foreach($moduleIdVersion in $moduleIdVersion.split(":"))
@@ -59,19 +58,33 @@
 				<type>jar</type>
 				<scope>provided</scope>
 			</dependency>
-			<dependency>
-				<groupId>org.openmrs.api</groupId>
-				<artifactId>openmrs-api</artifactId>
-				<version>${openMRSVersion}</version>
-				<type>test-jar</type>
-				<scope>test</scope>
-			</dependency>
+			
 			<dependency>
 				<groupId>org.openmrs.web</groupId>
 				<artifactId>openmrs-web</artifactId>
 				<version>${openMRSVersion}</version>
 				<type>jar</type>
 				<scope>provided</scope>
+			</dependency>
+			
+			#if($dependencyManagement == "y")
+			
+			<dependency>
+				<groupId>org.openmrs.test</groupId>
+				<artifactId>openmrs-test</artifactId>
+				<version>${openMRSVersion}</version>
+				<type>jar</type>
+				<scope>test</scope>
+			</dependency>
+			
+			#else
+			
+			<dependency>
+				<groupId>org.openmrs.api</groupId>
+				<artifactId>openmrs-api</artifactId>
+				<version>${openMRSVersion}</version>
+				<type>test-jar</type>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.openmrs.web</groupId>
@@ -87,9 +100,15 @@
 				<type>pom</type>
 				<scope>test</scope>
 			</dependency>
+			
+			#end
+			
+			
 		</dependencies>
 	</dependencyManagement>
-
+	
+	
+    
 	<properties>
 		<openMRSVersion>${openmrs-version}</openMRSVersion>
 	</properties>

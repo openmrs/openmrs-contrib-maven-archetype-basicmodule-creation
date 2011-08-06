@@ -18,6 +18,8 @@
 		
 		<requiredProperty key="serviceReply" />
 		
+		<requiredProperty key="dependencyManagement" />
+		
 		<requiredProperty key="openmrs-version" />
 		
 		<requiredProperty key="dependentModules" />
@@ -25,6 +27,8 @@
 		<requiredProperty key="object-name-no-spaces" />
 
 		<requiredProperty key="service-dao-name-no-spaces" />
+		
+		
 					
 	</requiredProperties>
 
