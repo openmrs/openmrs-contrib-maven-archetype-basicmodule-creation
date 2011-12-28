@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>${groupId}</groupId>
@@ -8,7 +8,7 @@
 	<packaging>pom</packaging>
 	<name>${module-name}</name>
 	<description>${module-description}</description>
-	
+
 	<organization>
 		<name>OpenMRS</name>
 		<url>http://openmrs.org</url>
@@ -24,12 +24,17 @@
 		<module>api</module>
 		<module>omod</module>
 	</modules>
+	
+	<properties>
+		<openMRSVersion>${openmrs-version}</openMRSVersion>
+	</properties>
 
 	<dependencyManagement>
 		<dependencies>
+		
 			<!--
-			Libraries from lib to add as dependencies with compile or runtime scope:
-			Find matching dependencies in maven central repository.
+			Libraries to add as dependencies with compile or runtime scope:
+			Find matching dependencies in the maven central repository.
 			<dependency>
 				<groupId>org.other.library</groupId>
 				<artifactId>library-name</artifactId>
@@ -37,19 +42,34 @@
 				<scope>compile</scope>
 			</dependency>
 			-->
+
+
+			<!-- Begin OpenMRS modules -->
+			#if ($dependentModules)
+			#foreach($moduleIdVersion in $dependentModules.split(","))
 			
-			#if ($dependentModules != "empty")
-		    #foreach($moduleIdVersion in $dependentModules.split(","))
 			<dependency>
-			<groupId>org.openmrs.module</groupId>
-		    	#foreach($moduleIdVersion in $moduleIdVersion.split(":"))
-		       	#if ($velocityCount == 1)<artifactId>${moduleIdVersion}-api</artifactId>#end
-		       	#if ($velocityCount == 2)<version>${moduleIdVersion}</version>#end
-		       	#end
-	        </dependency>	
-	 		#end	
+			
+				<groupId>org.openmrs.module</groupId>
+				#foreach($moduleIdVersion in $moduleIdVersion.split(":"))
+				#if ($velocityCount == 1)
 				
-			#end			
+				<artifactId>${moduleIdVersion}-api</artifactId>
+				#end
+				#if ($velocityCount == 2)
+				
+				<version>${moduleIdVersion}</version>
+				#end
+				#end
+				
+			</dependency>
+			#end
+			#end
+			
+			<!-- End OpenMRS modules -->
+
+
+			<!-- Begin OpenMRS core -->
 			
 			<dependency>
 				<groupId>org.openmrs.api</groupId>
@@ -58,7 +78,7 @@
 				<type>jar</type>
 				<scope>provided</scope>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.openmrs.web</groupId>
 				<artifactId>openmrs-web</artifactId>
@@ -66,9 +86,8 @@
 				<type>jar</type>
 				<scope>provided</scope>
 			</dependency>
-			
 			#if($dependencyManagement == "y")
-			
+
 			<dependency>
 				<groupId>org.openmrs.test</groupId>
 				<artifactId>openmrs-test</artifactId>
@@ -76,7 +95,6 @@
 				<type>jar</type>
 				<scope>test</scope>
 			</dependency>
-			
 			#else
 			
 			<dependency>
@@ -86,6 +104,7 @@
 				<type>test-jar</type>
 				<scope>test</scope>
 			</dependency>
+			
 			<dependency>
 				<groupId>org.openmrs.web</groupId>
 				<artifactId>openmrs-web</artifactId>
@@ -93,6 +112,7 @@
 				<type>test-jar</type>
 				<scope>test</scope>
 			</dependency>
+			
 			<dependency>
 				<groupId>org.openmrs.test</groupId>
 				<artifactId>openmrs-test</artifactId>
@@ -100,18 +120,12 @@
 				<type>pom</type>
 				<scope>test</scope>
 			</dependency>
-			
 			#end
 			
-			
+			<!-- End OpenMRS core -->
+
 		</dependencies>
 	</dependencyManagement>
-	
-	
-    
-	<properties>
-		<openMRSVersion>${openmrs-version}</openMRSVersion>
-	</properties>
 
 	<build>
 		<pluginManagement>
@@ -151,5 +165,5 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-	
+
 </project>

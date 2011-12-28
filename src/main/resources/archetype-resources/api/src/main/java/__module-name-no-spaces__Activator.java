@@ -13,10 +13,10 @@
  */
 package ${package};
 
-#if( ${openmrs-version.startsWith("1.6")} )
-#set( $activator = "Activator" )
+#if( ${dependencyManagement} == "y" )
+#set( $activator = "ModuleActivator" )
 #else
-#set( $activator = "ModuleActivator" ) 
+#set( $activator = "Activator" ) 
 #end
 
 import org.apache.commons.logging.Log; 
@@ -29,7 +29,6 @@ import org.openmrs.module.${activator};
 public class ${module-name-no-spaces}Activator implements ${activator} {
 	
 	protected Log log = LogFactory.getLog(getClass());
-	
 	#if(${activator.equals("Activator")})
 	
 	/**
@@ -89,7 +88,6 @@ public class ${module-name-no-spaces}Activator implements ${activator} {
 	public void stopped() {
 		log.info("${module-name} stopped");
 	}
-		
 	#end
 	
 }
