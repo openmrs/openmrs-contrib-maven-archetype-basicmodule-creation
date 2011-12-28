@@ -9,7 +9,10 @@
 	<name>${module-name}</name>
 	<description>${module-description}</description>
 	
-	<url>http://openmrs.org</url>
+	<organization>
+		<name>OpenMRS</name>
+		<url>http://openmrs.org</url>
+	</organization>
 
 	<scm>
 		<connection>scm:svn:http://svn.openmrs.org/openmrs-modules/${artifactId}/trunk/</connection>
@@ -17,14 +20,11 @@
 		<url>http://svn.openmrs.org/openmrs-modules/${artifactId}/trunk/</url>
 	</scm>
 
-
 	<modules>
 		<module>api</module>
 		<module>omod</module>
 	</modules>
 
-    
-	
 	<dependencyManagement>
 		<dependencies>
 			<!--
@@ -151,5 +151,5 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
+	
 </project>

@@ -7,13 +7,11 @@
 		<artifactId>${artifactId}</artifactId>
 		<version>${version}</version>
 	</parent>
-	<groupId>${groupId}</groupId>
+
 	<artifactId>${artifactId}-api</artifactId>
 	<packaging>jar</packaging>
 	<name>${module-name} API</name>
 	<description>API project for ${module-name-no-spaces}</description>
-	
-	
 
 	<dependencies>
 		<!-- 
@@ -42,8 +40,7 @@
             <type>jar</type>
         </dependency>
         
-        #else
-			
+        #else		
 			<dependency>
 				<groupId>org.openmrs.api</groupId>
 				<artifactId>openmrs-api</artifactId>
@@ -66,8 +63,7 @@
 				<scope>test</scope>
 			</dependency>
         #end
-		
-		
+			
 	</dependencies>
 
 </project>
