@@ -13,29 +13,83 @@
  */
 package ${package};
 
+#if( ${openmrs-version.startsWith("1.6")} )
+#set( $activator = "Activator" )
+#else
+#set( $activator = "ModuleActivator" ) 
+#end
+
 import org.apache.commons.logging.Log; 
 import org.apache.commons.logging.LogFactory;
-import org.openmrs.module.Activator;
+import org.openmrs.module.${activator};
 
 /**
- * This class contains the logic that is run every time this module is either started or shutdown
+ * This class contains the logic that is run every time this module is either started or stopped.
  */
-public class ${module-name-no-spaces}Activator implements Activator {
+public class ${module-name-no-spaces}Activator implements ${activator} {
 	
-	private Log log = LogFactory.getLog(this.getClass());
+	protected Log log = LogFactory.getLog(getClass());
+	
+	#if(${activator.equals("Activator")})
 	
 	/**
-	 * @see org.openmrs.module.Activator#startup()
+	 * @see Activator#startup()
 	 */
 	public void startup() {
 		log.info("Starting ${module-name}");
 	}
 	
 	/**
-	 * @see org.openmrs.module.Activator#shutdown()
+	 * @see Activator#shutdown()
 	 */
 	public void shutdown() {
 		log.info("Shutting down ${module-name}");
 	}
+	
+	#else
+	
+	/**
+	 * @see ModuleActivator#willRefreshContext()
+	 */
+	public void willRefreshContext() {
+		log.info("Refreshing ${module-name}");
+	}
+	
+	/**
+	 * @see ModuleActivator#contextRefreshed()
+	 */
+	public void contextRefreshed() {
+		log.info("${module-name} refreshed");
+	}
+	
+	/**
+	 * @see ModuleActivator#willStart()
+	 */
+	public void willStart() {
+		log.info("Starting ${module-name}");
+	}
+	
+	/**
+	 * @see ModuleActivator#started()
+	 */
+	public void started() {
+		log.info("${module-name} started");
+	}
+	
+	/**
+	 * @see ModuleActivator#willStop()
+	 */
+	public void willStop() {
+		log.info("Stopping ${module-name}");
+	}
+	
+	/**
+	 * @see ModuleActivator#stopped()
+	 */
+	public void stopped() {
+		log.info("${module-name} stopped");
+	}
+		
+	#end
 	
 }
