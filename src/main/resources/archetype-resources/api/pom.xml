@@ -15,16 +15,18 @@
 
 	<dependencies>
 	
-		<!-- Add other dependencies from parent's pom:
+		<!-- 
+		Add other dependencies from parent's pom:
 		<dependency>
 			<groupId>org.other.library</groupId> 
 			<artifactId>library-name</artifactId>
 		</dependency> 
 		-->
 
-
+		
+		#if ($dependentModules != "[none]")
+		
 		<!-- Begin OpenMRS modules -->
-		#if ($dependentModules)
 		#foreach($moduleIdVersion in $dependentModules.split(","))
 		
 		<dependency>
@@ -39,9 +41,9 @@
 			
 		</dependency>
 		#end
-		#end
 		
 		<!-- End OpenMRS modules -->
+		#end
 
 
 		<!-- Begin OpenMRS core -->
@@ -94,5 +96,21 @@
 		<!-- End OpenMRS core -->
 		
 	</dependencies>
+	
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+	</build>
 
 </project>

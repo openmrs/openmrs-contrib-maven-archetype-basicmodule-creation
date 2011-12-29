@@ -18,17 +18,13 @@
 
 	<!-- Module Activator -->
 	<activator>${project.parent.groupId}.${project.parent.artifactId}.${module-name-no-spaces}Activator</activator>
-
-	#* If the value of wizard question: " Do you want admin page link "
-	is 'y' then below lines will get added to config file
-	*#
-	#if($adminLinkReply == 'y' || $adminLinkReply== 'Y' || $springMvcReply == 'y' || $springMvcReply== 'Y' )
+	
+	#if($adminLinkReply == 'y' || $adminLinkReply== 'Y' || $springMVCReply == 'y' || $springMVCReply== 'Y' )
 
 	<!-- Add's link to admin page -->
 	<extension>
 		<point>org.openmrs.admin.list</point>
-		<class>${project.parent.groupId}.${project.parent.artifactId}.extension.html.AdminList
-		</class>
+		<class>${project.parent.groupId}.${project.parent.artifactId}.extension.html.AdminList</class>
 	</extension>
 	#end
 

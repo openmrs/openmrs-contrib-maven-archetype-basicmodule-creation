@@ -50,10 +50,11 @@
 				<scope>compile</scope>
 			</dependency>
 			-->
-
-
+			
+			#if ($dependentModules != "[none]")
+			
 			<!-- Begin OpenMRS modules -->
-			#if ($dependentModules)
+			
 			#foreach($moduleIdVersion in $dependentModules.split(","))
 			
 			<dependency>
@@ -72,9 +73,9 @@
 				
 			</dependency>
 			#end
-			#end
 			
 			<!-- End OpenMRS modules -->
+			#end
 
 
 			<!-- Begin OpenMRS core -->
@@ -150,6 +151,11 @@
 					<groupId>org.openmrs.maven.plugins</groupId>
 					<artifactId>maven-openmrs-plugin</artifactId>
 					<version>1.0.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>2.4</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
