@@ -8,7 +8,14 @@
 	<packaging>pom</packaging>
 	<name>${module-name}</name>
 	<description>${module-description}</description>
-
+	<url>https://wiki.openmrs.org/display/docs/${module-name.replace(" ", "+")}+Module</url>
+	
+	<developers>
+		<developer>
+			<name>${module-author}</name>
+		</developer>
+	</developers>
+	
 	<organization>
 		<name>OpenMRS</name>
 		<url>http://openmrs.org</url>
@@ -27,6 +34,7 @@
 	
 	<properties>
 		<openMRSVersion>${openmrs-version}</openMRSVersion>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencyManagement>

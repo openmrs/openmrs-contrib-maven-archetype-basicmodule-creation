@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <module configVersion="1.2">
-	
-    <!-- Module Properties -->
-	<id>${artifactId}</id>
-	<name>${module-name}</name>
-	<version>${version}</version>
-	<package>${package}</package>
+
+	<!-- Module Properties -->
+	<id>${project.parent.artifactId}</id>
+	<name>${project.parent.name}</name>
+	<version>${project.parent.version}</version>
+	<package>${project.parent.groupId}.${project.parent.artifactId}</package>
 	<author>${module-author}</author>
 	<description>
-			${module-description}
+		${project.parent.description}
 	</description>
-	
+	<require_version>${openMRSVersion}</require_version>
 	<!-- / Module Properties -->
-	
-	<require_version>1.2.0.3400</require_version>
 
+	<updateURL>https://dev.openmrs.org/modules/download/${project.parent.artifactId}/update.rdf</updateURL>
 
-    <!-- Module Activator -->
-	<activator>${package}.${module-name-no-spaces}Activator</activator>
+	<!-- Module Activator -->
+	<activator>${project.parent.groupId}.${project.parent.artifactId}.${module-name-no-spaces}Activator</activator>
 
-
-	#* If the value of wizard question: " Do you want admin page link " 
+	#* If the value of wizard question: " Do you want admin page link "
 	is 'y' then below lines will get added to config file
 	*#
-	#if( $adminLinkReply == 'y' || $adminLinkReply== 'Y' || $springMvcReply == 'y' || $springMvcReply== 'Y' )
-	<!-- Add's link to admin page --> 
-	 <extension>
-	  <point>org.openmrs.admin.list</point>
-	  <class>${package}.extension.html.AdminList</class>
-	 </extension>    
-  	#end
-  	
-  	<!-- Maps hibernate file's , if present -->   	
-   	<mappingFiles>
+	#if($adminLinkReply == 'y' || $adminLinkReply== 'Y' || $springMvcReply == 'y' || $springMvcReply== 'Y' )
+
+	<!-- Add's link to admin page -->
+	<extension>
+		<point>org.openmrs.admin.list</point>
+		<class>${project.parent.groupId}.${project.parent.artifactId}.extension.html.AdminList
+		</class>
+	</extension>
+	#end
+
+	<!-- Maps hibernate file's , if present -->
+	<mappingFiles>
 		${omodHbmConfig}
 	</mappingFiles>
 
-	
+
 	<!-- Internationalization -->
-	<!-- All message codes should start with @MODULE_ID@.* -->
+	<!-- All message codes should start with ${project.parent.artifactId}. -->
 	<messages>
 		<lang>en</lang>
 		<file>messages.properties</file>
@@ -53,6 +53,6 @@
 		<file>messages_es.properties</file>
 	</messages>
 	<!-- /Internationalization -->
-	
+
 </module>
 
