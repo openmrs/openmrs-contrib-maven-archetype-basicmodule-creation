@@ -56,7 +56,10 @@
 
 	<!-- Maps hibernate file's, if present -->
 	<mappingFiles>
-		${omodHbmConfig}
+		#if($serviceReply == 'y' || $serviceReply == 'Y')
+		${object-name-no-spaces}.hbm.xml
+		#end
+		
 	</mappingFiles>
 
 	<!-- Internationalization -->
