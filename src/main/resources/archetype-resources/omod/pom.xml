@@ -66,7 +66,7 @@
 			<artifactId>openmrs-web</artifactId>
 			<type>jar</type>
 		</dependency>
-		#if($dependencyManagement == "y")
+		#if($dependencyManagement == "y" || $dependencyManagement == "Y")
 
 		<dependency>
 			<groupId>org.openmrs.test</groupId>
@@ -78,7 +78,6 @@
 		<dependency>
 			<groupId>org.openmrs.api</groupId>
 			<artifactId>openmrs-api</artifactId>
-			<version>${openMRSVersion}</version>
 			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>
@@ -86,7 +85,6 @@
 		<dependency>
 			<groupId>org.openmrs.web</groupId>
 			<artifactId>openmrs-web</artifactId>
-			<version>${openMRSVersion}</version>
 			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>
@@ -94,7 +92,6 @@
 		<dependency>
 			<groupId>org.openmrs.test</groupId>
 			<artifactId>openmrs-test</artifactId>
-			<version>${openMRSVersion}</version>
 			<type>pom</type>
 			<scope>test</scope>
 		</dependency>

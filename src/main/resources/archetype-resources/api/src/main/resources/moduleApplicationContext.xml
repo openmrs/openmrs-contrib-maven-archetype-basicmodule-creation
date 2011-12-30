@@ -34,7 +34,7 @@
 					</property>
 					<property name="target">
 						<bean class="${project.parent.groupId}.${project.parent.artifactId}.api.impl.${service-dao-name-no-spaces}ServiceImpl">
-							<property name="${service-dao-name-no-spaces}DAO">
+							<property name="dao">
 								<bean class="${project.parent.groupId}.${project.parent.artifactId}.api.db.hibernate.Hibernate${service-dao-name-no-spaces}DAO">
 									<property name="sessionFactory">
 										<ref bean="sessionFactory" />

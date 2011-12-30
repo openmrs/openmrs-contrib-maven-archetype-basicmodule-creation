@@ -13,10 +13,9 @@
  */
 package ${package};
 
-#if( ${dependencyManagement} == "y" )
+#set( $activator = "Activator" )
+#if( ${dependencyManagement} == "y" || ${dependencyManagement} == "Y" )
 #set( $activator = "ModuleActivator" )
-#else
-#set( $activator = "Activator" ) 
 #end
 
 import org.apache.commons.logging.Log; 
