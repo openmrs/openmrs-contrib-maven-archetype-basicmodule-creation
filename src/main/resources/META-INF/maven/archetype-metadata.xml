@@ -15,6 +15,7 @@
 		<requiredProperty key="openmrs-version" />
 		<requiredProperty key="dependentModules" />
 		<requiredProperty key="service-dao-name-no-spaces" />
+		<requiredProperty key="object-name-no-spaces" />
 	</requiredProperties>
 
 	<modules>

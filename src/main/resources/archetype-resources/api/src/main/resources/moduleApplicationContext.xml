@@ -25,8 +25,7 @@
 	<bean parent="serviceContext">
 		<property name="moduleService">
 			<list>
-				<value>${project.parent.groupId}.${project.parent.artifactId}.api.${service-dao-name-no-spaces}Service
-				</value>
+				<value>${project.parent.groupId}.${project.parent.artifactId}.api.${service-dao-name-no-spaces}Service</value>
 				<bean
 					class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 					<property name="transactionManager">

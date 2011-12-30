@@ -22,17 +22,15 @@
 	#foreach($dependentModule in $dependentModules.split(","))
 		#set($dependentModule-name = "")
 		#set($dependentModule-version = "")
-	
 		#foreach($splittedModule in $dependentModule.split(":"))
 			#if($velocityCount == 1)
 				#set($dependentModule-name = $splittedModule)
 			#end
-			
 			#if($velocityCount == 2)
 				#set($dependentModule-version = $splittedModule)
 			#end
 		#end
-			
+		
 		<require_module version="${dependentModule-version}">
 			org.openmrs.module.${dependentModule-name}
 		</require_module>
@@ -57,6 +55,7 @@
 	<!-- Maps hibernate file's, if present -->
 	<mappingFiles>
 		#if($serviceReply == 'y' || $serviceReply == 'Y')
+		
 		${object-name-no-spaces}.hbm.xml
 		#end
 		
