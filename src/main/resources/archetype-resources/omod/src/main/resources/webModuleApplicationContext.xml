@@ -22,7 +22,7 @@
 
 	<!-- Add here beans related to the web context -->
 
-	#if ($springMVCReply == 'y' || $springMVCReply == 'Y')
+	#if ($adminLinkReply == 'y' || $adminLinkReply == 'Y')
  
 	<!-- Annotation based controllers -->
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>

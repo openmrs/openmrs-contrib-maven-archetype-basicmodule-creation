@@ -6,27 +6,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<requiredProperties>
 		<requiredProperty key="module-name-no-spaces" />
-
 		<requiredProperty key="module-name" />
-
 		<requiredProperty key="module-description" />
-
 		<requiredProperty key="module-author" />
-
 		<requiredProperty key="adminLinkReply" />
-
-		<requiredProperty key="springMVCReply" />
-
 		<requiredProperty key="serviceReply" />
-
 		<requiredProperty key="dependencyManagement" />
-
 		<requiredProperty key="openmrs-version" />
-
 		<requiredProperty key="dependentModules" />
-
-		<requiredProperty key="object-name-no-spaces" />
-
 		<requiredProperty key="service-dao-name-no-spaces" />
 	</requiredProperties>
 
