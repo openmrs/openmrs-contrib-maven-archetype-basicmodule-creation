@@ -4,15 +4,15 @@
 
 	<groupId>org.openmrs.maven.archetypes</groupId>
 	<artifactId>openmrs-archetype-basicmodule-creation</artifactId>
-	<version>1.1.0-SNAPSHOT</version>
+	<version>1.1.0</version>
 	<packaging>maven-archetype</packaging>
 
 	<name>openmrs-archetype-basicmodule-creation</name>
 
 	<scm>
-		<connection>scm:svn:http://svn.openmrs.org/openmrs-contrib/maven/archetypes/openmrs-archetype-basicmodule-creation/trunk/</connection>
-		<developerConnection>scm:svn:http://svn.openmrs.org/openmrs-contrib/maven/archetypes/openmrs-archetype-basicmodule-creation/trunk/</developerConnection>
-		<url>http://svn.openmrs.org/openmrs-contrib/maven/archetypes/openmrs-archetype-basicmodule-creation/trunk/</url>
+		<connection>scm:svn:http://svn.openmrs.org/openmrs-contrib/maven/archetypes/openmrs-archetype-basicmodule-creation/tags/1.1.0</connection>
+		<developerConnection>scm:svn:http://svn.openmrs.org/openmrs-contrib/maven/archetypes/openmrs-archetype-basicmodule-creation/tags/1.1.0</developerConnection>
+		<url>http://svn.openmrs.org/openmrs-contrib/maven/archetypes/openmrs-archetype-basicmodule-creation/tags/1.1.0</url>
 	</scm>
 
 	<build>
