@@ -22,9 +22,9 @@
 	</organization>
 
 	<scm>
-		<connection>scm:svn:http://svn.openmrs.org/openmrs-modules/${artifactId}/trunk/</connection>
-		<developerConnection>scm:svn:http://svn.openmrs.org/openmrs-modules/${artifactId}/trunk/</developerConnection>
-		<url>http://svn.openmrs.org/openmrs-modules/${artifactId}/trunk/</url>
+		<connection>scm:svn:https://svn.openmrs.org/openmrs-modules/${artifactId}/trunk/</connection>
+		<developerConnection>scm:svn:https://svn.openmrs.org/openmrs-modules/${artifactId}/trunk/</developerConnection>
+		<url>https://svn.openmrs.org/openmrs-modules/${artifactId}/trunk/</url>
 	</scm>
 
 	<modules>
@@ -70,6 +70,8 @@
 				<version>${moduleIdVersion}</version>
 				#end
 				#end
+				
+				<scope>provided</scope>
 				
 			</dependency>
 			#end
