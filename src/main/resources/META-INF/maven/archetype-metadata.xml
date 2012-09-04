@@ -21,6 +21,18 @@
 	<modules>
 		<module id="${rootArtifactId}" dir="api" name="${rootArtifactId}">
 			<fileSets>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/test/java</directory>
+					<includes>
+						<include>**/*</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/test/resources</directory>
+					<includes>
+						<include>**/*</include>
+					</includes>
+				</fileSet>
 				<fileSet filtered="true" packaged="true" encoding="UTF-8">
 					<directory>src/main/java</directory>
 					<includes>
@@ -39,6 +51,18 @@
 
 		<module id="${rootArtifactId}" dir="omod" name="${rootArtifactId}">
 			<fileSets>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/test/java</directory>
+					<includes>
+						<include>**/*</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/test/resources</directory>
+					<includes>
+						<include>**/*</include>
+					</includes>
+				</fileSet>
 				<fileSet filtered="true" packaged="true" encoding="UTF-8">
 					<directory>src/main/java</directory>
 					<includes>
