@@ -10,9 +10,9 @@
 	<name>openmrs-archetype-basicmodule-creation</name>
 
 	<scm>
-		<connection>scm:svn:https://svn.openmrs.org/openmrs-contrib/maven/archetypes/openmrs-archetype-basicmodule-creation/trunk</connection>
-		<developerConnection>scm:svn:https://svn.openmrs.org/openmrs-contrib/maven/archetypes/openmrs-archetype-basicmodule-creation/trunk</developerConnection>
-		<url>https://svn.openmrs.org/openmrs-contrib/maven/archetypes/openmrs-archetype-basicmodule-creation/trunk</url>
+		<connection>scm:git:https://github.com/openmrs/openmrs-contrib-maven-archetype-basicmodule-creation/</connection>
+		<developerConnection>scm:git:https://github.com/openmrs/openmrs-contrib-maven-archetype-basicmodule-creation/</developerConnection>
+		<url>https://github.com/openmrs/openmrs-contrib-maven-archetype-basicmodule-creation/</url>
 	</scm>
 
 	<build>
