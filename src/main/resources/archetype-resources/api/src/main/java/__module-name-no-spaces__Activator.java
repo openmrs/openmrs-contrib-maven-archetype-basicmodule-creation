@@ -13,7 +13,7 @@
  */
 package ${package};
 
-#set( $activator = "ModuleActivator" )
+#set( $activator = "BaseModuleActivator" )
 #if( ${dependencyManagement} == "y" || ${dependencyManagement} == "Y" )
 #set( $activator = "Activator" )
 #end
@@ -25,7 +25,7 @@ import org.openmrs.module.${activator};
 /**
  * This class contains the logic that is run every time this module is either started or stopped.
  */
-public class ${module-name-no-spaces}Activator implements ${activator} {
+public class ${module-name-no-spaces}Activator extends ${activator} {
 	
 	protected Log log = LogFactory.getLog(getClass());
 	#if(${activator.equals("Activator")})
