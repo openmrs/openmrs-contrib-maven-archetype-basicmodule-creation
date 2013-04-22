@@ -12,6 +12,7 @@
 		<requiredProperty key="adminLinkReply" />
 		<requiredProperty key="serviceReply" />
 		<requiredProperty key="dependencyManagement" />
+		<requiredProperty key="moduleActivatorManagement" />
 		<requiredProperty key="openmrs-version" />
 		<requiredProperty key="dependentModules" />
 		<requiredProperty key="service-dao-name-no-spaces" />

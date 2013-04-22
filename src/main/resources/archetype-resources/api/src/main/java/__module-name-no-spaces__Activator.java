@@ -13,9 +13,12 @@
  */
 package ${package};
 
-#set( $activator = "BaseModuleActivator" )
-#if( ${dependencyManagement} == "y" || ${dependencyManagement} == "Y" )
-#set( $activator = "Activator" )
+#if( ${moduleActivatorManagement} == "y" || ${moduleActivatorManagement} == "Y" )
+	#set( $activator = "Activator" )
+	#set( $extendsOrImplements = "implements")
+#else
+	#set ($activator = "BaseModuleActivator")
+	#set( $extendsOrImplements = "extends")
 #end
 
 import org.apache.commons.logging.Log; 
@@ -25,7 +28,7 @@ import org.openmrs.module.${activator};
 /**
  * This class contains the logic that is run every time this module is either started or stopped.
  */
-public class ${module-name-no-spaces}Activator extends ${activator} {
+public class ${module-name-no-spaces}Activator ${extendsOrImplements} ${activator} {
 	
 	protected Log log = LogFactory.getLog(getClass());
 	#if(${activator.equals("Activator")})
@@ -47,42 +50,42 @@ public class ${module-name-no-spaces}Activator extends ${activator} {
 	#else
 	
 	/**
-	 * @see ModuleActivator#willRefreshContext()
+	 * @see BaseModuleActivator#willRefreshContext()
 	 */
 	public void willRefreshContext() {
 		log.info("Refreshing ${module-name}");
 	}
 	
 	/**
-	 * @see ModuleActivator#contextRefreshed()
+	 * @see BaseModuleActivator#contextRefreshed()
 	 */
 	public void contextRefreshed() {
 		log.info("${module-name} refreshed");
 	}
 	
 	/**
-	 * @see ModuleActivator#willStart()
+	 * @see BaseModuleActivator#willStart()
 	 */
 	public void willStart() {
 		log.info("Starting ${module-name}");
 	}
 	
 	/**
-	 * @see ModuleActivator#started()
+	 * @see BaseModuleActivator#started()
 	 */
 	public void started() {
 		log.info("${module-name} started");
 	}
 	
 	/**
-	 * @see ModuleActivator#willStop()
+	 * @see BaseModuleActivator#willStop()
 	 */
 	public void willStop() {
 		log.info("Stopping ${module-name}");
 	}
 	
 	/**
-	 * @see ModuleActivator#stopped()
+	 * @see BaseModuleActivator#stopped()
 	 */
 	public void stopped() {
 		log.info("${module-name} stopped");
