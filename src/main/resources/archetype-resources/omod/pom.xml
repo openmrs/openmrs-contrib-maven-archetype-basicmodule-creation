@@ -15,22 +15,17 @@
 
 	<dependencies>
 
-		<!-- 
-		Add other dependencies from parent's pom: 
-		<dependency> 
-			<groupId>org.other.library</groupId> 
-			<artifactId>library-name</artifactId> 
-		</dependency> 
-		-->
-		
+		<!-- Add other dependencies from parent's pom: <dependency> <groupId>org.other.library</groupId> 
+			<artifactId>library-name</artifactId> </dependency> -->
+
 		<!-- Begin OpenMRS modules -->
-		
+
 		<dependency>
 			<groupId>${project.parent.groupId}</groupId>
 			<artifactId>${project.parent.artifactId}-api</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
-		
+
 		#if ($dependentModules != "[none]")
 		#foreach($moduleIdVersion in
 		$dependentModules.split(","))
@@ -49,53 +44,53 @@
 		</dependency>
 		#end
 		#end
-		
+
 		<!-- End OpenMRS modules -->
-		
+
 
 		<!-- Begin OpenMRS core -->
 
 		<dependency>
 			<groupId>org.openmrs.api</groupId>
 			<artifactId>openmrs-api</artifactId>
+			<version>${openMRSVersion}</version>
 			<type>jar</type>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.openmrs.web</groupId>
 			<artifactId>openmrs-web</artifactId>
+			<version>${openMRSVersion}</version>
 			<type>jar</type>
+			<scope>provided</scope>
 		</dependency>
-		#if($dependencyManagement == "y" || $dependencyManagement == "Y")
-
-		<dependency>
-			<groupId>org.openmrs.test</groupId>
-			<artifactId>openmrs-test</artifactId>
-			<type>jar</type>
-		</dependency>
-		#else
 
 		<dependency>
 			<groupId>org.openmrs.api</groupId>
 			<artifactId>openmrs-api</artifactId>
-			<type>test-jar</type>
+			<version>${openMRSVersion}</version>
+			<classifier>tests</classifier>
+			<type>jar</type>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.openmrs.web</groupId>
 			<artifactId>openmrs-web</artifactId>
-			<type>test-jar</type>
+			<version>${openMRSVersion}</version>
+			<classifier>tests</classifier>
+			<type>jar</type>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.openmrs.test</groupId>
 			<artifactId>openmrs-test</artifactId>
+			<version>${openMRSVersion}</version>
 			<type>pom</type>
 			<scope>test</scope>
 		</dependency>
-		#end
 
 		<!-- End OpenMRS core -->
 
