@@ -18,7 +18,14 @@
 		<requiredProperty key="service-dao-bean-id" />
 		<requiredProperty key="object-name-no-spaces" />
 	</requiredProperties>
-
+	<fileSets>
+		<fileSet encoding="UTF-8">
+			<directory></directory>
+			<includes>
+				<include>README*</include>
+			</includes>
+		</fileSet>
+	</fileSets>
 	<modules>
 		<module id="${rootArtifactId}" dir="api" name="${rootArtifactId}">
 			<fileSets>
